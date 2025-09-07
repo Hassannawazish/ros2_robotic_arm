@@ -40,4 +40,22 @@
                effort="${effort}" velocity="${velocity}"/>
     </joint>
 
+    <link name="forward_drive_arm">
+        <visual>
+            <origin rpy=" 0 -${PI / 2} ${PI / 2}" xyz="0.19 0.06 -0.08"/>
+            <geometry>
+                <mesh filename="package://robot_cpp/meshes/forward_drive_arm.STL" scale="0.01 0.01 0.01"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name ="joint_2" type="revolute">
+        <parent link="base_plate"/>
+        <child link = "forward_drive_arm"/>
+        <origin rpy="0 0 0" xyz="-0.02 0 0.35"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-${PI / 2}" upper="${PI / 2}"
+                effort="${effort}" velocity="${velocity}"/>
+    </joint>
+
 </robot>
