@@ -57,5 +57,23 @@
         <limit lower="-${PI / 2}" upper="${PI / 2}"
                 effort="${effort}" velocity="${velocity}"/>
     </joint>
+    
+    <link name="horizontal_arm">
+        <visual>
+            <origin rpy="${PI / 2} 0 ${PI / 2}" xyz="-0.03 -0.4 -0.06"/>
+            <geometry>
+                <mesh filename="package://robot_cpp/meshes/horizontal_arm.STL" scale="0.01 0.01 0.01"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name ="joint_3" type="revolute">
+        <parent link="forward_drive_arm"/>
+        <child link = "horizontal_arm"/>
+        <origin rpy="0 0 0" xyz="0 0 0.8"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-${PI / 2}" upper="${PI / 2}"
+               effort="${effort}" velocity="${velocity}"/>
+    </joint>
 
 </robot>
